@@ -1,5 +1,9 @@
+// ignore_for_file: unused_field
+
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
+
+
 
 void main () =>
 
@@ -15,17 +19,15 @@ void main () =>
 
     class _HomePageState extends State<HomePage> {
       AudioPlayer audioPlayer = AudioPlayer();
-      _executar() async {
-        String url = "https://www.yogapoint.com/mantras/devi/devi6.mp3";
-            int resultado = await audioPlayer.play(url);
-            if(resultado == 1){
-              //sucesso
-            }
+       AudioCache player = AudioCache();
 
-      }
+
+
 
       @override
       Widget build(BuildContext context) {
+
+        final player = AudioCache();
 
         return SafeArea(child: Scaffold(
           backgroundColor: Colors.blueGrey,
@@ -43,9 +45,9 @@ void main () =>
          floatingActionButton: FloatingActionButton(
            backgroundColor: Colors.blueGrey[900],
            onPressed: (){
-             _executar();
+             player.play('devi.mp3');
            },
-           child: Icon(Icons.play_arrow),
+           child: const Icon(Icons.play_arrow),
          ),
         ),
         );
